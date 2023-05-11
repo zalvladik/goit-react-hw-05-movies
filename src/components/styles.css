@@ -1,0 +1,121 @@
+*{
+    padding: 0px;
+    margin:0px;
+    list-style-type: none;
+    text-decoration: none;
+}
+.header{
+    margin-bottom:30px;
+    display: flex;
+    padding: 20px 30px;
+    border-bottom:1px solid black;
+    box-shadow: 0px -1px 57px 4px rgba(0,0,0,0.55);
+    background-color: rgb(233, 233, 233);
+}
+
+.nav_list{
+    display: flex;
+    
+}
+
+.nav_link+.nav_link{
+    margin-left:20px;
+}
+
+.nav_link{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 700;
+    border:1px solid black;
+    border-radius: 4px;
+    padding: 5px 5px;
+    justify-content: center;
+    display: flex;
+    color:black;
+    background-color: rgb(255, 255, 255);
+    transform: scale(1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav_link:hover,
+.nav_link:focus{
+    transform: scale(1.05);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav_link.active{
+    background-color: rgb(223, 64, 64);
+}
+
+.qwery_Container{
+    margin-left: 30px;
+    display: flex;
+}
+
+.inputSearch{
+    padding: 5px 4px;
+    font-size: 20px;
+}
+
+.submitButton{
+    padding: 5px 5px;
+    margin-left:30px;
+    font-size: 20px;
+}
+
+/* query links*/
+
+.query_container{
+    padding: 30px 0px;
+    margin-left:30px
+}
+
+.query_list{
+    width:max-content ;
+}
+
+.query_item+.query_item{
+    margin-top:5px; 
+}
+
+.query_item{
+    transform: translateX(0px);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.query_item:hover,
+.query_item:focus{
+    transform: translateX(20px);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    color:rgb(223, 64, 64);
+}
+
+.query_link{
+    color: currentColor;
+    font-size: 20px;
+    font-family:sans-serif;
+}
+
+
+.button_Container{
+    padding: 50px 50px;
+}
+
+.buttonPlusPage{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 700;
+    border:1px solid black;
+    border-radius: 4px;
+    padding: 5px 5px;
+    color:black;
+    background-color: rgb(223, 64, 64);
+    transform: scale(1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.buttonPlusPage:hover,
+.buttonPlusPage:focus{
+    transform: scale(1.05);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}

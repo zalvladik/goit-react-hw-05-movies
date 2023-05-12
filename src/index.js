@@ -9,11 +9,11 @@ import { ToastContainer } from "react-toastify";
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
-root.render(
-  <StrictMode>
+ReactDOM.createRoot(document.getElementById('root')).render(
+ 
     <BrowserRouter basename='/goit-react-hw-05-movies'>
       <App/>
       <ToastContainer/>
     </BrowserRouter>
-  </StrictMode>
+  
 );

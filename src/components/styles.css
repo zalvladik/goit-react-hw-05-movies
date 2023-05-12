@@ -10,7 +10,7 @@
     padding: 20px 30px;
     border-bottom:1px solid black;
     box-shadow: 0px -1px 57px 4px rgba(0,0,0,0.55);
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(185, 61, 61);
 }
 
 .nav_list{
@@ -44,7 +44,7 @@
 }
 
 .nav_link.active{
-    color: rgb(223, 64, 64); ;;
+    color: #d82323;
 }
 
 .qwery_Container{
@@ -112,7 +112,7 @@
 
 .query_link{
     color: currentColor;
-    font-size: 20px;
+    font-size: 23px;
     font-family:sans-serif;
 }
 
@@ -138,6 +138,81 @@
 .buttonPlusPage:focus{
     transform: scale(1.05);
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cast_container{
+    margin-top:30px;
+}
+
+.cast_list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cast_item{
+    border:1px solid black;
+    padding: 10px 20px;
+    background-color: rgb(128, 129, 133);
+    border-radius: 5px;
+    width: min-content;
+    transform: scale(1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cast_item:hover{
+    transform: scale(1.05);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cast_item+.cast_item{
+    margin-top:20px;
+}
+
+.cast_photo-container{
+    margin-bottom:20px;
+    width: 140px;
+    height: 177px;
+}
+
+.cast_photo{
+    border:1px solid black;
+    border-radius: 5px;
+}
+
+.cast_text{
+    font-family: sans-serif;
+}
+
+.cast_name{
+    font-size: 20px;
+    font-family: sans-serif;
+    margin-bottom: 5px;
+}
+
+.reviews_container{
+    margin-top:30px;
+}
+
+.reviews_item{
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin-bottom:20px;
+    background-color: rgb(128, 129, 133);
+
+}
+
+.reviews_author{
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    margin-bottom:10px;
+}
+
+.reviews_content{
+    font-family: sans-serif;
+    font-weight: 300;
+    font-size: 18px;
 }
 
 

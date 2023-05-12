@@ -2,6 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 import { NavLink } from "react-router-dom";
+import { toast } from 'react-toastify'
 import './styles.css'
 
 const MoviesList = () => {
@@ -17,7 +18,23 @@ const MoviesList = () => {
 
             fetch(`${MAIN_URL}/3/search/movie?api_key=${URL_KEY}&language=en-US&query=${queryValue}&page=${buttonPlusPage}&include_adult=false`)
             .then(result => result.json())
-            .then(array => setMoviesArray(prevState => [...prevState,...array.results]))
+            .then(array => {
+                if(array.results.length === 0){
+                    return toast.error('Нажаль по вашому запиту нічого не знайдено', {
+                        position: "top-right",
+                        autoClose: 2500,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "dark",
+                        });
+          
+            }
+            setMoviesArray(prevState => [...prevState,...array.results])
+        }
+            )
             
     },[buttonPlusPage,queryValue])
 

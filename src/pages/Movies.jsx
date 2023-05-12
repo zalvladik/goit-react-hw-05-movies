@@ -12,7 +12,7 @@ const Movies = () =>{
     const nextParams = query !== "" ? { query } : {};
     setSearchParams(nextParams);
 
-  };
+  }; 
 
     
 
@@ -23,5 +23,6 @@ const Movies = () =>{
         </main>
         )
 }
+
 
 export default Movies

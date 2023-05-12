@@ -1,5 +1,6 @@
 import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
+import { nanoid } from "nanoid";
 
 const Cast = () =>{
 
@@ -14,7 +15,7 @@ const Cast = () =>{
             fetch(`${MAIN_URL}/3/movie/${movieID}/credits?api_key=${URL_KEY}&language=en-US`)
             .then(result => result.json())
             .then(cast => setCastArray(prevState => cast.cast))
-    },[movieID])
+    },[])
 
     console.log(castArray)
 
@@ -22,7 +23,7 @@ const Cast = () =>{
         <div className='cast_container'>
             <ul className='cast_list'>
                 {castArray.map(cast => 
-                    <li className='cast_item'>
+                    <li key={nanoid()} className='cast_item'>
                         <div className='cast_photo-container'>
                         <img className='cast_photo' src={'https://www.themoviedb.org/t/p/w138_and_h175_face'+cast.profile_path}></img>
                         </div>

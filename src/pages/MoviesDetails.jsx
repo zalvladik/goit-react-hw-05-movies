@@ -16,7 +16,7 @@ const MoviesDetails = ({}) =>{
             fetch(`${MAIN_URL}/3/movie/${movieID}?api_key=${URL_KEY}&language=en-US`)
             .then(result => result.json())
             .then(movie => setMovieInfo(prevState => movie))
-    },[movieID])
+    },[])
 
     const genres = () =>{
         

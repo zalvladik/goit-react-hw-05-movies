@@ -2,11 +2,14 @@ import './styles.css'
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { FaSearch } from "react-icons/fa";
+import { useSearchParams } from 'react-router-dom';
 
-
-const SearchBox = ({ searchQuery}) =>{
-    const [currentValue, setCurrentValue] = useState('')
+const SearchBox = () =>{
     const [prevValue, setPrevValue] = useState('')
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const searchQuery = searchParams.get('query');
+    const [currentValue, setCurrentValue] = useState(() => searchQuery || '')
 
     const searchQweryFunc = e =>{
         e.preventDefault()
@@ -19,7 +22,7 @@ const SearchBox = ({ searchQuery}) =>{
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                theme: "colored",
+                theme: "dark",
                 });     
         }
 
@@ -32,11 +35,11 @@ const SearchBox = ({ searchQuery}) =>{
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                theme: "colored",
+                theme: "dark",
                 });  
         }
         setPrevValue(currentValue)
-        searchQuery(currentValue)
+        setSearchParams({ query: currentValue });
     }
     const changeCurrentValue = e => {
         setCurrentValue(e.currentTarget.value.toLowerCase().trim())
@@ -46,6 +49,7 @@ const SearchBox = ({ searchQuery}) =>{
             <form className='formQwery' onSubmit={searchQweryFunc}>
             <label>
                 <input 
+                    value={currentValue}
                     className='inputSearch'
                     type="text"
                     onChange={changeCurrentValue}

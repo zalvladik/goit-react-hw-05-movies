@@ -1,4 +1,3 @@
-import { useSearchParams } from "react-router-dom";
 import { useParams,Outlet,Link } from "react-router-dom";
 import { useEffect,useState} from "react";
 import './pagesStyled.css'
@@ -12,7 +11,6 @@ const MoviesDetails = ({}) =>{
         const URL_KEY = 'fb40b3f9c120ec573db898c0235ca89c';
 
     useEffect(() => {
-
             fetch(`${MAIN_URL}/3/movie/${movieID}?api_key=${URL_KEY}&language=en-US`)
             .then(result => result.json())
             .then(movie => setMovieInfo(prevState => movie))
@@ -30,18 +28,24 @@ const MoviesDetails = ({}) =>{
         return result
     }
     console.log(movieInfo)
+
+    const getYear = movieDate => {
+        const date = new Date(movieDate);
+        return date.getFullYear();
+      };
+    
     
     return(
 
         <div className='main_info_movie'>
             <div className='movie_info_container'>
                 <div className='poster_container'>
-                    <img className='poster' src={'https://www.themoviedb.org/t/p/w220_and_h330_face'+movieInfo.poster_path}></img>
+                    <img className='poster' src={'https://image.tmdb.org/t/p/w500'+movieInfo.poster_path}></img>
                 </div>
 
                 <ul className='movie_info_list'>
                     <li className='movie_info_item'>
-                        <p className='big_info_title'>{movieInfo.title ?? movieInfo.name} <br/>{'('+movieInfo.release_date+')'}</p>
+                        <p className='big_info_title'>{movieInfo.title ?? movieInfo.name} ({getYear(movieInfo.release_date)})</p>
                         <p className='movie_score text'>User Score:{movieInfo.vote_average*10 + '%'}</p>
                     </li>
                     <li className='movie_info_item'>

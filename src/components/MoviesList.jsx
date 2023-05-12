@@ -13,6 +13,9 @@ const MoviesList = () => {
     const queryValue = searchParams.get("query") ?? "";
     
     useEffect(() => {
+        if(!queryValue){
+            return
+        }
         const MAIN_URL = 'https://api.themoviedb.org';
         const URL_KEY = 'fb40b3f9c120ec573db898c0235ca89c';
 
@@ -30,8 +33,10 @@ const MoviesList = () => {
                         progress: undefined,
                         theme: "dark",
                         });
+                    
           
             }
+            console.log('movieList')
             setMoviesArray(prevState => [...prevState,...array.results])
         }
             )

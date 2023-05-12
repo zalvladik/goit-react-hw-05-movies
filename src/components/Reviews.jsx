@@ -17,19 +17,28 @@ const Reviews = () =>{
             .then(array =>  setReviews(prevState => array.results))
     },[])
 
-    console.log(reviews)
-    return(
-        <div className='reviews_container'>
-            <ul className='reviews_list'>
-                {reviews.map(review =>
-                    <li key={nanoid()} className='reviews_item'>
-                        <p className='reviews_author'>{review.author}</p>
-                        <p className='reviews_content'>{review.content}</p>
-                    </li>
-                )}
-            </ul>
-        </div>
-    )
+    if(reviews.length === 0){
+        return(
+            <div className='reviews_container'>   
+                <p className='reviews_author'>No reviews found 😥</p>
+            </div>
+        )
+    }
+
+    if(reviews.length > 0){
+        return(
+            <div className='reviews_container'>
+                <ul className='reviews_list'>
+                    {reviews.map(review =>
+                        <li key={nanoid()} className='reviews_item'>
+                            <p className='reviews_author'>{review.author}</p>
+                            <p className='reviews_content'>{review.content}</p>
+                        </li>
+                    )}
+                </ul>
+            </div>
+        )
+    }
 }
 
 export default Reviews

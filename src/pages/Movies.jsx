@@ -19,8 +19,7 @@ const Movies = () =>{
     return(
         <main>
             <SearchBox searchQuery={updateQueryString} />
-            { queryValue !== '' &&
-              <MoviesList />}
+              <MoviesList />
         </main>
         )
 }

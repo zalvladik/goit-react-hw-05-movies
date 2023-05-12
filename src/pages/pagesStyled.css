@@ -29,3 +29,11 @@
     font-size: 20px;
     font-family:sans-serif;
 }
+
+.poster{
+    height: 600px;
+}
+
+.main_info_movie{
+    display: flex;
+}

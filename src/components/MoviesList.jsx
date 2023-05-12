@@ -12,8 +12,6 @@ const MoviesList = () => {
     const queryValue = searchParams.get("query") ?? "";
     
     useEffect(() => {
-
-        console.log(queryValue)
         const MAIN_URL = 'https://api.themoviedb.org';
         const URL_KEY = 'fb40b3f9c120ec573db898c0235ca89c';
 
@@ -35,9 +33,9 @@ const MoviesList = () => {
                 </li>)
                 }
             </ul>
-            <div className='button_Container'>
+            {moviesArray.length > 0 && <div className='button_Container'>
                 <button className='buttonPlusPage' onClick={() => {setButtonPlusPage(buttonPlusPage+1)}}> Click me!</button>
-            </div>
+            </div>}
         </div>
     )
 }

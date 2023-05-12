@@ -23,7 +23,7 @@
 }
 
 .nav_link{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family:sans-serif;
     font-size: 20px;
     font-weight: 700;
     border:1px solid black;
@@ -44,7 +44,7 @@
 }
 
 .nav_link.active{
-    background-color: rgb(223, 64, 64);
+    color: rgb(223, 64, 64); ;;
 }
 
 .qwery_Container{
@@ -52,15 +52,35 @@
     display: flex;
 }
 
+.formQwery{
+    display: flex;
+    align-items: center;
+}
+
 .inputSearch{
-    padding: 5px 4px;
+    padding: 6px 4px;
     font-size: 20px;
 }
 
 .submitButton{
-    padding: 5px 5px;
+    border:1px solid black;
+    border-radius: 4px;
+    padding: 8px 8px;
+    height: 37px;
     margin-left:30px;
     font-size: 20px;
+    transform:scale(1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.submitButton:hover,
+.submitButton:focus{
+    transform:scale(1.05);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button_icon{
+    fill: #011627 ;
 }
 
 /* query links*/
@@ -102,14 +122,14 @@
 }
 
 .buttonPlusPage{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family:sans-serif;
     font-size: 20px;
     font-weight: 700;
     border:1px solid black;
     border-radius: 4px;
     padding: 5px 5px;
-    color:black;
-    background-color: rgb(223, 64, 64);
+    color:rgb(223, 64, 64);;
+    background-color: white;
     transform: scale(1);
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -119,3 +139,6 @@
     transform: scale(1.05);
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+
+/*#011627*/

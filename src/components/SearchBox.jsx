@@ -1,14 +1,12 @@
 import './styles.css'
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { useSearchParams } from 'react-router-dom';
+import { FaSearch } from "react-icons/fa";
+
 
 const SearchBox = ({ searchQuery}) =>{
     const [currentValue, setCurrentValue] = useState('')
     const [prevValue, setPrevValue] = useState('')
-    const [searchParams, setSearchParams] = useSearchParams();
-
-    const queryValue = searchParams.get("query") ?? "";
 
     const searchQweryFunc = e =>{
         e.preventDefault()
@@ -45,18 +43,17 @@ const SearchBox = ({ searchQuery}) =>{
     }
     return(
         <div className='qwery_Container'>
-            <form onSubmit={searchQweryFunc}>
+            <form className='formQwery' onSubmit={searchQweryFunc}>
             <label>
                 <input 
                     className='inputSearch'
-                    value={queryValue}
                     type="text"
                     onChange={changeCurrentValue}
                 >
                 </input>
             </label>
             
-                <button className='submitButton' type="submit">Submit</button>
+                <button className='submitButton' type="submit"> <FaSearch className='button_icon'/> </button>
             </form>
         </div>
     )

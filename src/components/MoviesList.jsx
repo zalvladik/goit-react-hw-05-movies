@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 import './styles.css'
 
 const MoviesList = () => {
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
     const [moviesArray, setMoviesArray] = useState([])
     const [buttonPlusPage, setButtonPlusPage] = useState(1)
     const [loader,setLoader] = useState(false)
@@ -53,6 +53,7 @@ const MoviesList = () => {
             <div className='query_container'>
                 <p className='reviews_author'>Loading... 🕓</p>
             </div>
+
         )
     }
 

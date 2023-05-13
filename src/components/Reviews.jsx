@@ -21,7 +21,7 @@ const Reviews = () =>{
             .catch(error => console.log(error))
             .finally(setLoader(prevState => false))
             },2000)
-    },[])
+    },[movieID])
 
     if(loader){
         return(

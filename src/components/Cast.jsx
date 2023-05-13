@@ -25,7 +25,7 @@ const Cast = () =>{
             .finally(setLoader(prevState => false))
             console.log('castArray')
             },2000)
-    },[])
+    },[castArray.length, movieID])
 
     if(loader){
         return(
@@ -42,7 +42,7 @@ const Cast = () =>{
                     {castArray.map(cast => 
                         <li key={nanoid()} className='cast_item'>
                             <div className='cast_photo-container'>
-                            <img className='cast_photo' src={'https://www.themoviedb.org/t/p/w138_and_h175_face'+cast.profile_path}></img>
+                            <img className='cast_photo' alt={cast.name} src={'https://www.themoviedb.org/t/p/w138_and_h175_face'+cast.profile_path}></img>
                             </div>
                             <div className='cast_text-container'>
                                 <p className='cast_name'>{cast.name}</p>

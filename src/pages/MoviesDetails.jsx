@@ -2,7 +2,7 @@ import { useParams,Outlet,Link } from "react-router-dom";
 import { useEffect,useState} from "react";
 import './pagesStyled.css'
 
-const MoviesDetails = ({}) =>{
+const MoviesDetails = () =>{
     const [movieInfo, setMovieInfo] = useState([])
 
     const {movieID} = useParams()
@@ -16,7 +16,7 @@ const MoviesDetails = ({}) =>{
             .then(movie => setMovieInfo(prevState => movie))
             .catch(error => console.log(error))
             console.log(movieInfo)
-    },[])
+    },)
 
     const genres = () =>{
         
@@ -42,7 +42,7 @@ const MoviesDetails = ({}) =>{
         <div className='main_info_movie'>
             <div className='movie_info_container'>
                 <div className='poster_container'>
-                    <img className='poster' src={'https://image.tmdb.org/t/p/w500'+movieInfo.poster_path}></img>
+                    <img className='poster' alt={movieInfo.title ?? movieInfo.name} src={'https://image.tmdb.org/t/p/w500'+movieInfo.poster_path}></img>
                 </div>
 
                 <ul className='movie_info_list'>

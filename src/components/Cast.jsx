@@ -35,14 +35,6 @@ const Cast = () =>{
         )
     }
 
-    if(castArray.length === 0){
-        return(
-            <div className='cast_container'>
-                <p className='reviews_author'>No casts found 😥</p>
-            </div>
-        )
-    }
-
     if(castArray.length > 0){
         return(
             <div className='cast_container'>
@@ -62,6 +54,16 @@ const Cast = () =>{
             </div>
         )
     }
+    
+    if(castArray.length === 0){
+        return(
+            <div className='cast_container'>
+                <p className='reviews_author'>No casts found 😥</p>
+            </div>
+        )
+    }
+
+    
 }
 
 export default Cast

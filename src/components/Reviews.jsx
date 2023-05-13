@@ -31,14 +31,6 @@ const Reviews = () =>{
         )
     }
 
-    if(reviews.length === 0){
-        return(
-            <div className='reviews_container'>   
-                <p className='reviews_author'>No reviews found 😥</p>
-            </div>
-        )
-    }
-
     if(reviews.length > 0){
         return(
             <div className='reviews_container'>
@@ -53,6 +45,16 @@ const Reviews = () =>{
             </div>
         )
     }
+
+    if(reviews.length === 0){
+        return(
+            <div className='reviews_container'>   
+                <p className='reviews_author'>No reviews found 😥</p>
+            </div>
+        )
+    }
+
+    
 }
 
 export default Reviews

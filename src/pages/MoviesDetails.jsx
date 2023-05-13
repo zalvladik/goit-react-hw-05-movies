@@ -15,8 +15,8 @@ const MoviesDetails = () =>{
             .then(result => result.json())
             .then(movie => setMovieInfo(prevState => movie))
             .catch(error => console.log(error))
-            console.log(movieInfo)
-    },)
+            console.log('moviesDetails')
+    },[movieID])
 
     const genres = () =>{
         
@@ -29,8 +29,6 @@ const MoviesDetails = () =>{
         }
         return result
     }
-    console.log(movieInfo)
-
     const getYear = movieDate => {
         const date = new Date(movieDate);
         return date.getFullYear();

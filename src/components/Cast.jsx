@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { nanoid } from "nanoid";
 
 const Cast = () =>{
-
+    const [loader,setLoader] = useState(true)
     const [castArray, setCastArray] = useState([])
 
     const {movieID} = useParams()
@@ -15,11 +15,25 @@ const Cast = () =>{
         if(castArray.length > 0){
             return
         }
-            fetch(`${MAIN_URL}/3/movie/${movieID}/credits?api_key=${URL_KEY}&language=en-US`)
+
+        setLoader(prevState => true)
+            setTimeout(() =>{
+                fetch(`${MAIN_URL}/3/movie/${movieID}/credits?api_key=${URL_KEY}&language=en-US`)
             .then(result => result.json())
             .then(cast => setCastArray(prevState => cast.cast))
+            .catch(error => console.log(error))
+            .finally(setLoader(prevState => false))
             console.log('castArray')
+            },2000)
     },[])
+
+    if(loader){
+        return(
+            <div className='cast_container'>
+                <p className='reviews_author'>Loading... 🕓</p>
+            </div>
+        )
+    }
 
     if(castArray.length === 0){
         return(

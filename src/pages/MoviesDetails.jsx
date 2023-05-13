@@ -46,7 +46,7 @@ const MoviesDetails = ({}) =>{
                 <ul className='movie_info_list'>
                     <li className='movie_info_item'>
                         <p className='big_info_title'>{movieInfo.title ?? movieInfo.name} ({getYear(movieInfo.release_date)})</p>
-                        <p className='movie_score text'>User Score:{movieInfo.vote_average*10 + '%'}</p>
+                        <p className='movie_score text'>User Score:{Math.round(movieInfo.vote_average*10) + '%'}</p>
                     </li>
                     <li className='movie_info_item'>
                         <p className='big_info_title'>Overview</p>

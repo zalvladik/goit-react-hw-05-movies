@@ -46,7 +46,7 @@ const MoviesList = () => {
             .finally(setLoader(prevState => false))
             },2000)
             
-    },[buttonPlusPage,queryValue])
+    },[])
 
     if(loader){ 
         return(

@@ -1,4 +1,4 @@
-import { Outlet, NavLink, useParams } from "react-router-dom";
+import { Outlet, NavLink} from "react-router-dom";
 import'./styles.css'
 
 export const SharedLayout = () => {

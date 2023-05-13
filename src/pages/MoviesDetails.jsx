@@ -1,11 +1,16 @@
-import { useParams,Outlet,Link } from "react-router-dom";
+import { useParams,Outlet,Link,useLocation, NavLink } from "react-router-dom";
 import { useEffect,useState} from "react";
 import './pagesStyled.css'
+import noImage from '../images/noImage.jpg'
 
 const MoviesDetails = () =>{
     const [movieInfo, setMovieInfo] = useState([])
-
     const {movieID} = useParams()
+
+    const location = useLocation();
+    const cameBack = location.state?.from ?? '/';
+
+
 
         const MAIN_URL = 'https://api.themoviedb.org';
         const URL_KEY = 'fb40b3f9c120ec573db898c0235ca89c';
@@ -38,9 +43,16 @@ const MoviesDetails = () =>{
     return(
 
         <div className='main_info_movie'>
+            <div className='cameBack_Container'>
+                <NavLink className='cameBack' to={cameBack}>Come Back</NavLink>
+            </div>
             <div className='movie_info_container'>
                 <div className='poster_container'>
-                    <img className='poster' alt={movieInfo.title ?? movieInfo.name} src={'https://image.tmdb.org/t/p/w500'+movieInfo.poster_path}></img>
+                    {movieInfo.poster_path ? (
+                        <img className='poster' alt={movieInfo.title ?? movieInfo.name} src={'https://image.tmdb.org/t/p/w500'+movieInfo.poster_path}></img>
+                    ) :(
+                        <img className='noImage' alt={movieInfo.title ?? movieInfo.name} src={noImage}></img>
+                    )}
                 </div>
 
                 <ul className='movie_info_list'>

@@ -26,7 +26,7 @@ const Reviews = () =>{
     if(loader){
         return(
             <div className='cast_container'>
-                <p className='reviews_author'>Loading... 🕓</p>
+                <p className='big_info_title'>Loading... 🕓</p>
             </div>
         )
     }
@@ -49,7 +49,7 @@ const Reviews = () =>{
     if(reviews.length === 0){
         return(
             <div className='reviews_container'>   
-                <p className='reviews_author'>No reviews found 😥</p>
+                <p className='big_info_title'>No reviews found 😥</p>
             </div>
         )
     }

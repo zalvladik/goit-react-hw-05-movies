@@ -1,6 +1,7 @@
 import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
 import { nanoid } from "nanoid";
+import noImage from '../images/noImage.jpg'
 
 const Cast = () =>{
     const [loader,setLoader] = useState(true)
@@ -30,7 +31,7 @@ const Cast = () =>{
     if(loader){
         return(
             <div className='cast_container'>
-                <p className='reviews_author'>Loading... 🕓</p>
+                <p className='big_info_title'>Loading... 🕓</p>
             </div>
         )
     }
@@ -42,7 +43,11 @@ const Cast = () =>{
                     {castArray.map(cast => 
                         <li key={nanoid()} className='cast_item'>
                             <div className='cast_photo-container'>
-                            <img className='cast_photo' alt={cast.name} src={'https://www.themoviedb.org/t/p/w138_and_h175_face'+cast.profile_path}></img>
+                            {cast.profile_path ? (
+                                <img className='cast_photo' alt={cast.name} src={'https://www.themoviedb.org/t/p/w138_and_h175_face'+cast.profile_path}></img>
+                            ) : (
+                                <img className='NOcast_photo' alt={cast.name} src={noImage}></img>)
+                                }
                             </div>
                             <div className='cast_text-container'>
                                 <p className='cast_name'>{cast.name}</p>
@@ -58,7 +63,7 @@ const Cast = () =>{
     if(castArray.length === 0){
         return(
             <div className='cast_container'>
-                <p className='reviews_author'>No casts found 😥</p>
+                <p className='big_info_title'>No casts found 😥</p>
             </div>
         )
     }

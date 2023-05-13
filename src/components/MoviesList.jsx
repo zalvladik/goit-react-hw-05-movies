@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams,useLocation  } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 import { NavLink } from "react-router-dom";
@@ -10,6 +10,8 @@ const MoviesList = () => {
     const [moviesArray, setMoviesArray] = useState([])
     const [buttonPlusPage, setButtonPlusPage] = useState(1)
     const [loader,setLoader] = useState(false)
+    const location = useLocation();
+
 
     const queryValue = searchParams.get("query") ?? "";
     
@@ -64,7 +66,7 @@ const MoviesList = () => {
                     {moviesArray.map(movie => 
                     <li className='query_item' id={movie.id} key={nanoid()}>
                         <NavLink
-                         to={`/movies/${movie.id}`} className='query_link'>- {movie.title ?? movie.name}
+                         state={{ from: location }} to={`/movies/${movie.id}`} className='query_link'>- {movie.title ?? movie.name}
                         </NavLink>
                     </li>)
                     }

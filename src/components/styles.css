@@ -158,15 +158,12 @@
     width: min-content;
     transform: scale(1);
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 20px;
 }
 
 .cast_item:hover{
     transform: scale(1.05);
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.cast_item+.cast_item{
-    margin-top:20px;
 }
 
 .cast_photo-container{

@@ -42,7 +42,7 @@ const SearchBox = () =>{
         setSearchParams({ query: currentValue });
     }
     const changeCurrentValue = e => {
-        setCurrentValue(e.currentTarget.value.toLowerCase().trim())
+        setCurrentValue(e.currentTarget.value)
     }
     return(
         <div className='qwery_Container'>

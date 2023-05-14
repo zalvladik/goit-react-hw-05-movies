@@ -1,5 +1,5 @@
 import { useParams,Outlet,Link,useLocation, NavLink } from "react-router-dom";
-import { useEffect,useState} from "react";
+import { useEffect,useState,Suspense} from "react";
 import './pagesStyled.css'
 import noImage from '../images/noImage.jpg'
 
@@ -9,8 +9,6 @@ const MoviesDetails = () =>{
 
     const location = useLocation();
     const cameBack = location.state?.from ?? '/';
-
-
 
         const MAIN_URL = 'https://api.themoviedb.org';
         const URL_KEY = 'fb40b3f9c120ec573db898c0235ca89c';
@@ -73,12 +71,14 @@ const MoviesDetails = () =>{
             <div className='additional_info_container'>
                 <p className='big_info_title'>Additional information :</p>
                     <ul className='additional_info_list'>
-                        <li className='trending_item'> <Link className='trending_link' to="cast"> - Cast</Link> </li>
-                        <li className='trending_item'> <Link className='trending_link' to="reviews"> - Reviews</Link> </li>
+                        <li className='trending_item'> <Link state={{ from: cameBack }} className='trending_link' to="cast"> - Cast</Link> </li>
+                        <li className='trending_item'> <Link state={{ from: cameBack }} className='trending_link' to="reviews"> - Reviews</Link> </li>
                     </ul>
             </div>
             <div>
-                <Outlet/>
+                <Suspense fallback={<p className='big_info_title'>Loading... 🕓</p>}>
+                    <Outlet/>
+                </Suspense>
             </div>
         </div>
     )

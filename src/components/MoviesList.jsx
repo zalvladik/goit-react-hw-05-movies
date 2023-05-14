@@ -8,15 +8,20 @@ import './styles.css'
 const MoviesList = () => {
     const [searchParams] = useSearchParams();
     const [moviesArray, setMoviesArray] = useState([])
-    const [buttonPlusPage, setButtonPlusPage] = useState(1)
-    const [loader,setLoader] = useState(false)
+    const [loader,setLoader] = useState(false);
+    const [prevValue, setPrevValue] = useState('')
     const location = useLocation();
 
 
     const queryValue = searchParams.get("query") ?? "";
     
     useEffect(() => {
-        if(!queryValue){
+
+        if(prevValue !== queryValue){
+            setMoviesArray(prevState => [])
+        }
+
+        if(!queryValue || prevValue === queryValue){
             return
         }
         const MAIN_URL = 'https://api.themoviedb.org';
@@ -24,7 +29,7 @@ const MoviesList = () => {
 
         setLoader(prevState => true)
             setTimeout(() =>{
-                fetch(`${MAIN_URL}/3/search/movie?api_key=${URL_KEY}&language=en-US&query=${queryValue}&page=${buttonPlusPage}&include_adult=false`)
+                fetch(`${MAIN_URL}/3/search/movie?api_key=${URL_KEY}&language=en-US&query=${queryValue}&page=1&include_adult=false`)
             .then(result => result.json())
             .then(array => {
                 if(array.results.length === 0){
@@ -38,17 +43,16 @@ const MoviesList = () => {
                         progress: undefined,
                         theme: "dark",
                         });
-                    
-          
             }
             console.log('movieList')
             setMoviesArray(prevState => [...prevState,...array.results])
+            setPrevValue(prevState => queryValue)
         }
             ).catch(error => console.log(error))
             .finally(setLoader(prevState => false))
             },2000)
             
-    },[buttonPlusPage,queryValue])
+    },[queryValue, prevValue])
 
     if(loader){ 
         return(
@@ -71,9 +75,6 @@ const MoviesList = () => {
                     </li>)
                     }
                 </ul>
-                {moviesArray.length > 0 && <div className='button_Container'>
-                    <button className='buttonPlusPage' onClick={() => {setButtonPlusPage(buttonPlusPage+1)}}> Click me!</button>
-                </div>}
             </div>
         )
     }
